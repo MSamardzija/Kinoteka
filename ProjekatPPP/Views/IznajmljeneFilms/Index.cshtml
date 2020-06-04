@@ -1,0 +1,49 @@
+﻿@*@model IEnumerable<ProjekatPPP.Models.IznajmljeneFilm>*@
+@using ProjekatPPP.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<ProjekatPPP.Models.IznajmljeneFilm>
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Promeni lične podatke", "Edit", "Korisniks", new { id = (int)Session["IdKorisnika"] }, new { @class = "btn btn-info" })
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            Naziv
+        </th>
+        <th>
+            Reziser
+        </th>
+        <th colspan="2">
+            Datum
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Kolicina)
+            </th>*@
+    </tr>
+    @foreach (var item in Model.Where(i => i.RedniBrojČlana == (int)Session["IdKorisnika"]))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reziser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum)
+            </td>
+            <td>
+                @Html.ActionLink("Obriši rezervaciju", "Delete", "IznajmljeneFilms", new { id = item.RedniBrojIznajmljivanja }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.PagedListPager(Model, strana => Url.Action("Index", new { strana = strana }))
+</div>
