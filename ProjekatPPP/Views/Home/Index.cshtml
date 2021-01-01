@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Kinoteka";
+}
+    <div class="jumbotron card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+        <div class="text-white text-center py-5 px-4">
+            <div>
+                <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Kinoteka Beograd</strong></h2>
+                <p class="mx-5 mb-5">
+                    Kinoteka sa najvecim izborom domacih i stranih filmova. Potrazite svoj omiljeni film na nasem sajtu i rezerviste vec danas !
+                </p>
+                <p class="btn btn-outline-secondary btn-md">@Html.ActionLink("Rezervišite film koji želite", "Index", "Films", new { area = "" }, new { })</p>
+
+                <h3>Kontakt</h3>
+                <p>Pionirska 1, 11000 Beograd, Srbija</p>
+                <p>(+381)11 2451 242, Kinoteka@gmail.rs</p>
+            </div>
+        </div>
+    </div>

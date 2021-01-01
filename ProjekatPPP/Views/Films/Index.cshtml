@@ -1,0 +1,57 @@
+﻿@*@model IEnumerable<ProjekatPPP.Models.Film>*@
+@using ProjekatPPP.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<ProjekatPPP.Models.Film>
+@{
+    ViewBag.Title = "Lista filmova";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Filmova</h2>
+
+<table class="table" id="film">
+    <tr class="table-info">
+        <th>
+            Naziv
+        </th>
+        <th colspan="2">
+            Reziser
+        </th>
+        <th colspan="2">
+            Produkcija
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SifraFilma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reziser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produkcija)
+            </td>
+            <td>
+                @if (Session["IdKorisnika"] == null)
+                {
+                    @Html.ActionLink("Rezerviši", "Login", "Korisniks", new { area = "" }, new { @class = "btn btn-primary" })
+                }
+                else
+                {
+                    @Html.ActionLink("Rezerviši", "Rezervacija", "IznajmljeneFilms", new { id = item.SifraFilma }, new { @class = "btn btn-primary" })
+                }
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.PagedListPager(Model, strana => Url.Action("Index", new { strana = strana }))
+</div>
+
