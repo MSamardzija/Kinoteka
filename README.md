@@ -1,7 +1,7 @@
 # Kinoteka ASP.NET MVC Web Aplication
 
 ### Pocetna strana
-<img src="Slike/MainPage.png" height="300px">
+<img src="Slike/MainPage.png">
 
 ### Forma za registraciju
 <img src="Slike/Registracija.png">
