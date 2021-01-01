@@ -10,7 +10,7 @@
 <img src="Slike/LogIn.png">
 
 ### Prikaz svih dostupnih filmova u kinoteci
-<img src="Slike/ListaFilmova">
+<img src="Slike/ListaFilmova.png">
 
 ### Sve rezervacije ulogovanog korisnika
 <img src="Slike/KorisnikoveRezervacije.png">
@@ -22,7 +22,7 @@
 <img src="Slike/IzmenaPodataka.png">
 
 
-##License & Copyright
+## License & Copyright
 
 MIT License Copyright © 2020 Marko Samardzija
 
